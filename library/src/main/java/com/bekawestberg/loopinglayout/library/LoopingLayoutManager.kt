@@ -213,6 +213,13 @@ open class LoopingLayoutManager : LayoutManager, RecyclerView.SmoothScroller.Scr
                     layoutRect.right, layoutRect.bottom)
 
             index = stepIndex(index, movementDir, state, false)
+            if (sizeFilled == 0) {
+                sizeFilled = if (orientation == HORIZONTAL) {
+                    layoutRect.left
+                } else {
+                    layoutRect.top
+                }
+            }
             sizeFilled += item.size
             prevItem = item
         }
