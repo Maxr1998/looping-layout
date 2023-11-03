@@ -20,14 +20,3 @@ if (secretPropsFile.exists()) {
     ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
     ext["signing.key"] = System.getenv('SIGNING_KEY')
 }
-
-// Set up Sonatype repository
-nexusPublishing {
-    repositories {
-        sonatype {
-            stagingProfileId = sonatypeStagingProfileId
-            username = ossrhUsername
-            password = ossrhPassword
-        }
-    }
-}
